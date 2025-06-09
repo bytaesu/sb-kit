@@ -1,0 +1,22 @@
+---
+title: Concepts
+description: The core concepts behind sb-kit.
+---
+
+### Bring Your Own Client
+
+sb-kit doesn’t create its own Supabase client. Instead, it’s designed to work with the client instance provided by your application, giving you full control over how it’s configured.
+
+This means you can continue using all Supabase features through your client, in addition to what sb-kit provides.
+
+### Centralized Configuration
+
+Integrating Supabase Auth with Next.js usually means writing scattered setup code across multiple files. sb-kit centralizes everything into a single configuration file, making it easier to manage and update.
+
+### Ready to Use
+
+Supabase offers powerful customization options, but sometimes you just need auth that works out of the box. sb-kit provides common auth UI patterns and logic you can drop in and start using right away.
+
+### Open Source
+
+You can find the source code and example application at https://github.com/bytaesu/sb-kit. sb-kit is released under the MIT license. Feel free to use it, and if you find any issues or have suggestions for improvement, contributions are always welcome!

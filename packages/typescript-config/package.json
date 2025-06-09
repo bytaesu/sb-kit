@@ -1,0 +1,11 @@
+{
+  "name": "@sb-kit/typescript-config",
+  "description": "Shared TypeScript config for sb-kit projects",
+  "version": "0.0.1",
+  "author": "bytaesu",
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

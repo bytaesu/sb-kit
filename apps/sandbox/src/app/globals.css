@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@import '@sb-kit/core/styles/default.css';
+
+@source '../../node_modules/@sb-kit';

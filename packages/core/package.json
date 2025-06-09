@@ -1,0 +1,61 @@
+{
+  "name": "@sb-kit/core",
+  "version": "0.0.1",
+  "description": "Drop-in authentication layer for Next.js and Supabase.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./styles/*": "./styles/*"
+  },
+  "files": [
+    "dist",
+    "styles"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "next": ">=15.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  },
+  "dependencies": {
+    "@sb-kit/ui": "^0.0.2",
+    "@hookform/resolvers": "^5.0.1",
+    "react-hook-form": "^7.57.0",
+    "react-icons": "^5.5.0",
+    "sonner": "^2.0.5",
+    "zod": "^3.25.49"
+  },
+  "devDependencies": {
+    "@sb-kit/eslint-config": "^0.0.2",
+    "@sb-kit/typescript-config": "^0.0.1",
+    "@supabase/supabase-js": "^2.49.9",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "tsup": "^8.5.0"
+  },
+  "license": "MIT",
+  "author": "bytaesu <bytaesu@gmail.com> (https://github.com/bytaesu)",
+  "homepage": "https://sb-kit.hillche.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytaesu/sb-kit"
+  },
+  "keywords": [
+    "sb-kit",
+    "nextjs",
+    "react",
+    "supabase",
+    "auth",
+    "authentication",
+    "toolkit"
+  ]
+}

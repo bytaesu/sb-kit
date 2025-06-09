@@ -1,0 +1,344 @@
+---
+title: Getting started
+description: Quick start guide for setting up sb-kit with default configuration.
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+<Steps>
+
+<Step>
+## Install dependencies
+
+If you're adding sb-kit to an existing Next.js project:
+
+```sh tab="npm"
+npx shadcn@latest init
+
+npm install @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="pnpm"
+pnpm dlx shadcn@latest init
+
+pnpm add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="yarn"
+yarn dlx shadcn@latest init
+
+yarn add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="bun"
+bunx shadcn@latest init
+
+bun add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+To create a new Next.js app with sb-kit:
+
+```sh tab="npm"
+npx create-next-app@latest myapp --tailwind --use-npm
+
+cd myapp
+
+npx shadcn@latest init
+
+npm install @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="pnpm"
+npx create-next-app@latest myapp --tailwind --use-pnpm
+
+cd myapp
+
+pnpm dlx shadcn@latest init
+
+pnpm add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="yarn"
+npx create-next-app@latest myapp --tailwind --use-yarn
+
+cd myapp
+
+yarn dlx shadcn@latest init
+
+yarn add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+```sh tab="bun"
+npx create-next-app@latest myapp --tailwind --use-bun
+
+cd myapp
+
+bunx shadcn@latest init
+
+bun add @supabase/supabase-js @supabase/ssr @sb-kit/core @sb-kit/ui
+```
+
+</Step>
+
+<Step>
+## Configure global styles
+
+Tailwind CSS v4 requires this to be set in your global CSS file.
+
+```css title="app/globals.css"
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@import 'sb-kit/styles/default.css';
+@source '../../node_modules/@sb-kit';
+
+/* ... rest of the file */
+```
+
+</Step>
+
+<Step>
+## Configure Supabase clients
+
+### Option 1: Default Setup
+
+This setup is based on the official Supabase docs and works with any Next.js project.
+
+```dotenv title=".env" tab=".env"
+SUPABASE_URL=<YOUR_SUPABASE_URL>
+SUPABASE_ANON_KEY=<YOUR_SUPABASE_ANON_KEY>
+```
+
+```ts title="/lib/supabase/client/server.ts" tab="Server Client"
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+
+export async function serverClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll: () => cookieStore.getAll(),
+        setAll: (cookiesToSet) => {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            );
+          } catch {}
+        },
+      },
+    },
+  );
+}
+```
+
+```ts title="/lib/supabase/client/middleware.ts" tab="Middleware Client"
+import { createServerClient } from '@supabase/ssr';
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function middlewareClient(request: NextRequest) {
+  const supabaseResponse = NextResponse.next();
+
+  const supabase = createServerClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll: () => request.cookies.getAll(),
+        setAll: (cookiesToSet) => {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            supabaseResponse.cookies.set(name, value, options);
+          });
+        },
+      },
+    },
+  );
+
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  return {
+    supabaseResponse,
+    user,
+    error,
+  };
+}
+```
+
+### Option 2: Existing Supabase Client
+
+If you’re using your own Supabase client, just make sure your utility functions conform to the following shape:
+
+```ts
+import type { SupabaseClient, User, AuthError } from '@supabase/supabase-js';
+import type { NextRequest, NextResponse } from 'next/server';
+
+/**
+ * Server-side Supabase client
+ */
+async function serverClient(): Promise<SupabaseClient> {
+  // return your server client
+}
+
+/**
+ * Middleware Supabase client
+ */
+async function middlewareClient(request: NextRequest): Promise<{
+  supabaseResponse: NextResponse;
+  user: User | null;
+  error: AuthError | null;
+}> {
+  // return your middleware client
+}
+```
+
+</Step>
+
+<Step>
+## Initialize sb-kit client
+
+Initialize sb-kit with Supabase clients.
+
+```ts title="/lib/supabase/sb-kit.ts"
+import { sbKitClient } from 'sb-kit';
+import { serverClient } from './client/server';
+import { middlewareClient } from './client/middleware';
+
+export const sbKit = sbKitClient({
+  supabaseClients: {
+    server: serverClient,
+    middleware: middlewareClient,
+  },
+});
+```
+
+</Step>
+
+<Step>
+## Add server-side helpers
+
+Use sbKit.callbackHandler for OAuth callbacks and routeGuard in middleware to protect routes based on authentication state.
+
+```ts title="/app/api/auth/callback/route.ts" tab="OAuth Callback handler"
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+const callbackHandler = sbKit.callbackHandler;
+
+export { callbackHandler as GET };
+```
+
+```ts title="/src/middleware.ts" tab="Middleware Route Guard"
+import { NextResponse, type NextRequest } from 'next/server';
+import { sbKit } from './lib/supabase/sb-kit';
+
+export async function middleware(request: NextRequest) {
+  const routeGuardResponse = await sbKit.routeGuard(request);
+  if (routeGuardResponse) return routeGuardResponse;
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
+};
+```
+
+</Step>
+
+<Step>
+
+## Add auth layout and pages
+
+Use sbKit.components to set up the auth layout and pages.
+
+- AuthWrapper provides the base auth UI along with the SonnerToaster provider.
+- The page components handle the auth flow using server actions.
+
+```ts title="/app/(auth)/layout.tsx" tab="Auth Layout"
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const AuthWrapper = sbKit.components.AuthWrapper;
+
+const Layout = ({ children }: Props) => {
+  return <AuthWrapper>{children}</AuthWrapper>;
+};
+
+export default Layout;
+
+```
+
+```ts title="/app/(auth)/signin/page.tsx" tab="Sign In"
+import type { SearchParams } from 'next/dist/server/request/search-params';
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+type Props = {
+  searchParams: Promise<SearchParams>;
+};
+
+const SignIn = sbKit.components.SignIn;
+
+const Page = ({ searchParams }: Props) => {
+  return <SignIn searchParams={searchParams} />;
+};
+
+export default Page;
+
+```
+
+```ts title="/app/(auth)/signup/page.tsx" tab="Sign Up"
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+const SignUp = sbKit.components.SignUp;
+
+const Page = () => {
+  return <SignUp />;
+};
+
+export default Page;
+
+```
+
+```ts title="/app/(auth)/forgot-password/page.tsx" tab="Forgot Password"
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+const ForgotPasssword = sbKit.components.ForgotPassword;
+
+const Page = () => {
+  return <ForgotPasssword />;
+};
+
+export default Page;
+
+```
+
+```ts title="/app/(auth)/set-password/page.tsx" tab="Set Password"
+import { sbKit } from '@/lib/supabase/sb-kit';
+
+const SetPassword = sbKit.components.SetPassword;
+
+const Page = () => {
+  return <SetPassword />;
+};
+
+export default Page;
+
+```
+
+</Step>
+
+</Steps>
+
+<div align="center" className="py-16 underline text-lg font-mono">
+  **Done.**
+</div>

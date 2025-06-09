@@ -1,0 +1,35 @@
+---
+title: Introduction
+# description: Welcome to the sb-kit documentation.
+---
+
+sb-kit is a drop-in authentication layer designed to work with [Next.js](https://nextjs.org/) and [Supabase](https://supabase.com/).
+
+It’s built for speed. Perfect for hackathons, MVPs, and rapid prototyping. It handles the full auth flow, including UI, so you can focus on building your product without compromising security or flexibility.
+
+## Features
+
+- Ready-to-use auth components.
+- Works with your existing Supabase client.
+- Easy and type-safe setup.
+- Sync code with Supabase settings in a single file.
+- Safe dynamic redirects to the original path after login.
+- Server-side authentication by default.
+
+## Why Supabase
+
+I built this on top of Supabase Auth because of its reasonable pricing and the fact that it comes with Postgres and Object storage built-in. I think It is perfect for rapid development at the moment.
+
+## Why I Built sb-kit
+
+I needed managed cloud to build and ship multiple services efficiently, so I chose Supabase. During development, I found myself duplicating the same auth logic across projects like an idiot. Finally I said "enough" and extracted it into an internal package. I usually avoid excessive abstraction unless it's obviously worth it, and this was.
+
+These days, I mostly write Go, but before shifting my focus elsewhere, I wanted to follow through on my plan to open-source this.
+
+## In closing
+
+This project was originally built for personal use, and I've added documentation before sharing it. Since it hasn't received external feedback yet, I'd especially welcome any contributions! Whether you spot a bug, have an idea for a new feature, or want to improve the documentation, PRs and issues are always welcome.
+
+Last year, I needed to quickly jump into web frontend from scratch for a prototype build. Supabase monorepo was an excellent learning resource. Later, I built and sold a private service using Supabase, which is still running smoothly today.
+
+sb-kit is how I give back to the ecosystem. I hope sb-kit can be helpful for you too!
