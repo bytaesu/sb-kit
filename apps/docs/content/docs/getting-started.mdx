@@ -89,7 +89,7 @@ Tailwind CSS v4 requires this to be set in your global CSS file.
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@import 'sb-kit/styles/default.css';
+@import '@sb-kit/ui/styles/default.css';
 @source '../../node_modules/@sb-kit';
 
 /* ... rest of the file */
@@ -205,7 +205,7 @@ async function middlewareClient(request: NextRequest): Promise<{
 Initialize sb-kit with Supabase clients.
 
 ```ts title="/lib/supabase/sb-kit.ts"
-import { sbKitClient } from 'sb-kit';
+import { sbKitClient } from '@sb-kit/core';
 import { serverClient } from './client/server';
 import { middlewareClient } from './client/middleware';
 
