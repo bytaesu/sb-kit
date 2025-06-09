@@ -2,11 +2,27 @@
 
 # `sb-kit`
 
-## Introduction
-
 Drop-in authentication layer for Next.js and Supabase.
 
 It’s built for speed. Perfect for MVPs and rapid prototyping. It handles the full auth flow, including UI, so you can focus on building your product without compromising security or flexibility.
+
+## Getting started
+
+You’ll find everything you need in the [👉sb-kit docs](https://sb-kit.hillche.com).
+
+```sh
+# npm
+npm i @sb-kit/core @sb-kit/ui
+
+# pnpm
+pnpm add @sb-kit/core @sb-kit/ui
+
+# yarn
+yarn add @sb-kit/core @sb-kit/ui
+
+# bun
+bun add @sb-kit/core @sb-kit/ui
+```
 
 ## Features
 
@@ -32,11 +48,6 @@ It’s built for speed. Perfect for MVPs and rapid prototyping. It handles the f
 - _Ready to Use:_
 
   Supabase offers powerful customization options, but sometimes you just need auth that works out of the box. sb-kit provides common auth UI patterns and logic you can drop in and start using right away.
-
-## Documentation
-
-Looking for setup instructions or usage examples?  
-Visit the [sb-kit docs](https://sb-kit.hillche.com) for everything you need to get started.
 
 ## Contributions
 
