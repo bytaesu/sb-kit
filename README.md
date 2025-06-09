@@ -1,3 +1,5 @@
+![sb-kit-banner](https://github.com/user-attachments/assets/319e0907-ceb8-4db2-9643-b86a43a48108)
+
 # `sb-kit`
 
 ## Introduction
