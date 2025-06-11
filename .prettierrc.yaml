@@ -1,0 +1,33 @@
+# Base settings
+printWidth: 100                   # Maximum line width
+tabWidth: 2                       # Number of spaces per tab
+semi: true                        # Add semicolons at the end of statements
+useTabs: false                    # Use spaces instead of tabs
+singleQuote: true                 # Use single quotes instead of double quotes
+bracketSpacing: true              # Print spaces between brackets in object literals
+trailingComma: all                # Include trailing commas wherever possible
+arrowParens: always               # Always include parentheses around arrow function parameters
+endOfLine: lf                     # Use Unix-style line endings (LF)
+
+# Plugin for sorting imports
+plugins:
+  - '@trivago/prettier-plugin-sort-imports'
+
+# Import sorting order
+importOrder:
+  - '^react'                      # React imports
+  - '^next'                       # Next.js imports
+  - '<THIRD_PARTY_MODULES>'       # Other third-party libraries
+  - '^@sb-kit/(.*)$'              # Internal packages (e.g. @sb-kit/ui)
+  - '^@/(.*)$'                    # Project-local alias imports (e.g. @/lib)
+  - '^[./]'                       # Relative imports
+
+# Import sorting options
+importOrderSeparation: true       # Add a blank line between import groups
+importOrderSortSpecifiers: true   # Sort the imported members within import statements
+
+# Override settings
+overrides:
+  - files: 'apps/docs/**/*.mdx'
+    options:
+      printWidth: 80
