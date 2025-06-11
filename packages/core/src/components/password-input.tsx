@@ -2,8 +2,9 @@
 
 import { forwardRef, useState } from 'react';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
-import { Input } from '@sb-kit/ui/components/base/input';
+
 import { Button } from '@sb-kit/ui/components/base/button';
+import { Input } from '@sb-kit/ui/components/base/input';
 
 /**
  * PasswordInput Component

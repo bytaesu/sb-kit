@@ -1,4 +1,5 @@
 import { SearchParams } from 'next/dist/server/request/search-params';
+
 import { SbKitConfig } from './sb-kit/sb-kit.types';
 
 /**

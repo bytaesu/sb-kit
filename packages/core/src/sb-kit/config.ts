@@ -1,7 +1,7 @@
 import type { AllowedEmailOtpLength } from '../email-otp';
+import { type PasswordPolicy, passwordPolicy } from '../password-policy';
 import type { AuthRoutes, RedirectPolicy, SbKitConfig } from './sb-kit.types';
 import { type SbKitOptions, sbKitOptionsSchema } from './schema';
-import { type PasswordPolicy, passwordPolicy } from '../password-policy';
 
 /**
  * Builds a validated SbKit configuration by merging user options with defaults.

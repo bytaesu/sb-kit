@@ -1,5 +1,7 @@
 'use client';
 
+import { useRedirectUrl } from '../../hooks/use-redirect-url';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import {
   AuthCard,
   AuthCardContent,
@@ -7,8 +9,6 @@ import {
   AuthCardHeader,
   AuthCardTitle,
 } from '../auth-card';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
-import { useRedirectUrl } from '../../hooks/use-redirect-url';
 import BackToSignInButton from './back-to-sign-in-button';
 import SetPasswordForm from './form';
 

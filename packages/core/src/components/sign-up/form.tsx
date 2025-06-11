@@ -1,5 +1,13 @@
 'use client';
 
+import { useMemo, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
+import { z } from 'zod';
+
+import { Button } from '@sb-kit/ui/components/base/button';
 import {
   Form,
   FormControl,
@@ -8,19 +16,14 @@ import {
   FormLabel,
   FormMessage,
 } from '@sb-kit/ui/components/base/form';
-import { z } from 'zod';
-import { toast } from 'sonner';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useMemo, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { createClientSideSchemas } from '../../schemas/client-side';
 import { Input } from '@sb-kit/ui/components/base/input';
-import { Button } from '@sb-kit/ui/components/base/button';
-import PasswordInput from '../password-input';
-import PasswordConditionBar from '../password-condition-bar';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
+
 import { signUpAction } from '../../actions/sign-up';
 import { AUTH_ERRORS } from '../../constants';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
+import { createClientSideSchemas } from '../../schemas/client-side';
+import PasswordConditionBar from '../password-condition-bar';
+import PasswordInput from '../password-input';
 
 type SignUpFormProps = {
   enterVerificationStage: (userEmail: string) => void;

@@ -11,7 +11,8 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@sb-kit/core": "workspace:*",
+    "@sb-kit/core": "0.0.2",
+    "@sb-kit/ui": "0.0.3",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.9",
     "next": "^15.3.3",

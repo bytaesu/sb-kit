@@ -1,6 +1,7 @@
-import { serverClient } from './client/server';
-import { middlewareClient } from './client/middleware';
 import { sbKitClient } from '@sb-kit/core';
+
+import { middlewareClient } from './client/middleware';
+import { serverClient } from './client/server';
 
 export const sbKit = sbKitClient({
   supabaseClients: {

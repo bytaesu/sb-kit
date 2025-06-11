@@ -1,4 +1,5 @@
 import { cn } from '@sb-kit/ui/lib/utils';
+
 import type { SbKitConfig } from '../sb-kit/sb-kit.types';
 
 type Props = {

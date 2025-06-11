@@ -1,8 +1,11 @@
-import TypingCodeBlock from './typing-code-block';
-import SignUpMock from './sign-up-mock';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
+import { ArrowRight } from 'lucide-react';
+
 import { Button } from '@sb-kit/ui/components/base/button';
+
+import SignUpMock from './sign-up-mock';
+import TypingCodeBlock from './typing-code-block';
 
 const HeroSection = () => {
   return (

@@ -4,7 +4,6 @@
  * Unlike client-side schemas,
  * these do not depend on dynamic config and ensure consistent auth logic.
  */
-
 import { z } from 'zod';
 
 /** Valid email (non-empty string, RFC 5322 compliant) */

@@ -1,12 +1,12 @@
 import { Loader2 } from 'lucide-react';
 
-interface SpinnerProps {
-  size?: string;
-  stokeWidth?: string;
+type SpinnerProps = {
+  size?: number;
+  stokeWidth?: number;
   className?: string;
-}
+};
 
-const Spinner: React.FC<SpinnerProps> = ({ size = 24, stokeWidth = 2, className = '' }) => {
+const Spinner = ({ size = 24, stokeWidth = 2, className = '' }: SpinnerProps) => {
   return <Loader2 size={size} strokeWidth={stokeWidth} className={`animate-spin ${className}`} />;
 };
 

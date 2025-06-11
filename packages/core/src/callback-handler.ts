@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { SbKitConfig } from './sb-kit/sb-kit.types';
-import { getSafeRedirectPathFromParam } from './safe-redirect';
-import { getServerClient } from './supabase/client-factory';
+
 import { AUTH_ERRORS, SEARCH_PARAMS } from './constants';
+import { getSafeRedirectPathFromParam } from './safe-redirect';
+import { SbKitConfig } from './sb-kit/sb-kit.types';
+import { getServerClient } from './supabase/client-factory';
 
 /**
  * Handles OAuth callback.

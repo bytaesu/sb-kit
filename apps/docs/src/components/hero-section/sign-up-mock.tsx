@@ -1,12 +1,14 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
+import { EyeOff } from 'lucide-react';
+
 import { Button } from '@sb-kit/ui/components/base/button';
 import { Input } from '@sb-kit/ui/components/base/input';
 import { Label } from '@sb-kit/ui/components/base/label';
 import { SeparatorWithText } from '@sb-kit/ui/components/base/separator';
 import { cn } from '@sb-kit/ui/lib/utils';
-import { EyeOff } from 'lucide-react';
-import { useEffect, useState } from 'react';
 
 const SignUpMock = () => {
   const [visible, setVisible] = useState(false);

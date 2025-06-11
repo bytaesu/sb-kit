@@ -1,9 +1,11 @@
 import type { JSX } from 'react';
+
 import type { NextRequest, NextResponse } from 'next/server';
-import type { PasswordPolicy } from '../password-policy';
+
+import type { AuthWrapperProps, SignInProps } from '../components';
 import type { AllowedEmailOtpLength } from '../email-otp';
 import type { OAuthProvider } from '../oauth-provider';
-import type { AuthWrapperProps, SignInProps } from '../components';
+import type { PasswordPolicy } from '../password-policy';
 import type { MiddlewareClientFactory, ServerClientFactory } from '../supabase/supabase.types';
 import type { SbKitOptions } from './schema';
 

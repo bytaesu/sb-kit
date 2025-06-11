@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getMiddlewareClient } from './supabase/client-factory';
+
 import { SEARCH_PARAMS } from './constants';
 import type { SbKitConfig } from './sb-kit/sb-kit.types';
+import { getMiddlewareClient } from './supabase/client-factory';
 
 /**
  * Route guard for Next.js Middleware based on authentication state.

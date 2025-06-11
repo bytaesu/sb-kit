@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import { SEARCH_PARAMS } from '../constants';
 
 /**

@@ -1,17 +1,21 @@
 'use client';
 
-import { z } from 'zod';
-import { cn } from '@sb-kit/ui/lib/utils';
-import { toast } from 'sonner';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useMemo } from 'react';
+import { useForm } from 'react-hook-form';
+
 import { useRouter } from 'next/navigation';
-import { createClientSideSchemas } from '../../schemas/client-side';
-import { verifyOtpAction } from '../../actions/verify-otp';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
+import { z } from 'zod';
+
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@sb-kit/ui/components/base/input-otp';
+import { cn } from '@sb-kit/ui/lib/utils';
+
+import { verifyOtpAction } from '../../actions/verify-otp';
 import { AllowedEmailOtpTypes, resolveEmailOtpRedirectPath } from '../../email-otp';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
+import { createClientSideSchemas } from '../../schemas/client-side';
 import { delay } from '../../utils';
 
 type Props = {

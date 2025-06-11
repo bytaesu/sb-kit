@@ -110,8 +110,9 @@ SUPABASE_ANON_KEY=<YOUR_SUPABASE_ANON_KEY>
 ```
 
 ```ts title="/lib/supabase/client/server.ts" tab="Server Client"
-import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+
+import { createServerClient } from '@supabase/ssr';
 
 export async function serverClient() {
   const cookieStore = await cookies();
@@ -136,8 +137,9 @@ export async function serverClient() {
 ```
 
 ```ts title="/lib/supabase/client/middleware.ts" tab="Middleware Client"
-import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
+
+import { createServerClient } from '@supabase/ssr';
 
 export async function middlewareClient(request: NextRequest) {
   const supabaseResponse = NextResponse.next();
@@ -175,8 +177,9 @@ export async function middlewareClient(request: NextRequest) {
 If you’re using your own Supabase client, just make sure your utility functions conform to the following shape:
 
 ```ts
-import type { SupabaseClient, User, AuthError } from '@supabase/supabase-js';
 import type { NextRequest, NextResponse } from 'next/server';
+
+import type { AuthError, SupabaseClient, User } from '@supabase/supabase-js';
 
 /**
  * Server-side Supabase client
@@ -206,8 +209,9 @@ Initialize sb-kit with Supabase clients.
 
 ```ts title="/lib/supabase/sb-kit.ts"
 import { sbKitClient } from '@sb-kit/core';
-import { serverClient } from './client/server';
+
 import { middlewareClient } from './client/middleware';
+import { serverClient } from './client/server';
 
 export const sbKit = sbKitClient({
   supabaseClients: {
@@ -233,7 +237,8 @@ export { callbackHandler as GET };
 ```
 
 ```ts title="/src/middleware.ts" tab="Middleware Route Guard"
-import { NextResponse, type NextRequest } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
+
 import { sbKit } from './lib/supabase/sb-kit';
 
 export async function middleware(request: NextRequest) {

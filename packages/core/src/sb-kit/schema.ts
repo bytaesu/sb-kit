@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { OAUTH_PROVIDERS } from '../oauth-provider';
 
 const passwordRuleSchema = z.enum([

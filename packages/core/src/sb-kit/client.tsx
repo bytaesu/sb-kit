@@ -1,9 +1,10 @@
-import { SignIn, SignUp, SetPassword, ForgotPassword, AuthWrapper } from '../components';
-import { setMiddlewareClientFactory, setServerClientFactory } from '../supabase/client-factory';
-import { routeGuard } from '../route-guard';
-import { createSbKitConfig } from './config';
-import { callbackHandler } from '../callback-handler';
 import type { NextRequest } from 'next/server';
+
+import { callbackHandler } from '../callback-handler';
+import { AuthWrapper, ForgotPassword, SetPassword, SignIn, SignUp } from '../components';
+import { routeGuard } from '../route-guard';
+import { setMiddlewareClientFactory, setServerClientFactory } from '../supabase/client-factory';
+import { createSbKitConfig } from './config';
 import type { SbKitClient, SbKitClientInit } from './sb-kit.types';
 
 /**

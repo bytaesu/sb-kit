@@ -1,11 +1,12 @@
 'use server';
 
 import { headers } from 'next/headers';
-import { getServerClient } from '../supabase/client-factory';
+
 import { AUTH_ERRORS, SEARCH_PARAMS } from '../constants';
+import type { OAuthProvider } from '../oauth-provider';
+import { getServerClient } from '../supabase/client-factory';
 import { extractErrorMessage } from '../utils';
 import type { ActionResult } from './action.types';
-import type { OAuthProvider } from '../oauth-provider';
 
 export async function OAuthAction(
   provider: OAuthProvider,

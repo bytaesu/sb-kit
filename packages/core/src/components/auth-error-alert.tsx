@@ -1,10 +1,13 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import { SEARCH_PARAMS } from '../constants';
 import { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import { Button } from '@sb-kit/ui/components/base/button';
+
+import { SEARCH_PARAMS } from '../constants';
 
 type Props = {
   errorMessage: string;

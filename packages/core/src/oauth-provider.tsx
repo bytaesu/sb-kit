@@ -16,6 +16,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { RiNotionFill } from 'react-icons/ri';
 import { SiKeycloak, SiZoom } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
+
 import type { Provider } from '@supabase/supabase-js';
 
 /**

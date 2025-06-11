@@ -1,5 +1,13 @@
 'use client';
 
+import { useState } from 'react';
+import { HiChevronLeft } from 'react-icons/hi';
+
+import { Button } from '@sb-kit/ui/components/base/button';
+import { Spinner } from '@sb-kit/ui/components/base/spinner';
+
+import { AllowedEmailOtpTypes, emailOtpMessageByType } from '../../email-otp';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import {
   AuthCard,
   AuthCardContent,
@@ -8,12 +16,6 @@ import {
   AuthCardTitle,
 } from '../auth-card';
 import EmailOtpVerificationForm from './form';
-import { HiChevronLeft } from 'react-icons/hi';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
-import { Button } from '@sb-kit/ui/components/base/button';
-import { AllowedEmailOtpTypes, emailOtpMessageByType } from '../../email-otp';
-import { useState } from 'react';
-import { Spinner } from '@sb-kit/ui/components/base/spinner';
 
 type Props = {
   userEmail: string;

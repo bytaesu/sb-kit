@@ -1,5 +1,6 @@
-import type { SupabaseClient, AuthError, User } from '@supabase/supabase-js';
 import type { NextRequest, NextResponse } from 'next/server';
+
+import type { AuthError, SupabaseClient, User } from '@supabase/supabase-js';
 
 export type ServerClientFactory = () => Promise<SupabaseClient>;
 

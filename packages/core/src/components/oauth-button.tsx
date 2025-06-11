@@ -1,12 +1,16 @@
 'use client';
 
-import { redirect, RedirectType } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+import { RedirectType, redirect } from 'next/navigation';
+
+import { toast } from 'sonner';
+
+import { Button } from '@sb-kit/ui/components/base/button';
+import { cn } from '@sb-kit/ui/lib/utils';
+
 import { OAuthAction } from '../actions/oauth';
 import { OAuthProvider, oauthProviderConfig } from '../oauth-provider';
-import { Button } from '@sb-kit/ui/components/base/button';
-import { toast } from 'sonner';
-import { cn } from '@sb-kit/ui/lib/utils';
 
 type Props = {
   provider: OAuthProvider;

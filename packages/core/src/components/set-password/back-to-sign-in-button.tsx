@@ -1,13 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
-import { Button } from '@sb-kit/ui/components/base/button';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
-import { signOutAction } from '../../actions/sign-out';
 import { HiChevronLeft } from 'react-icons/hi';
+
+import { useRouter } from 'next/navigation';
+
+import { toast } from 'sonner';
+
+import { Button } from '@sb-kit/ui/components/base/button';
+
+import { signOutAction } from '../../actions/sign-out';
 import { AUTH_ERRORS, SEARCH_PARAMS } from '../../constants';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 
 type BackToSignInButtonProps = {
   sbKitConfig: SbKitConfig;

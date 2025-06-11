@@ -1,5 +1,7 @@
 import type { NextRequest } from 'next/server';
+
 import type { SupabaseClient } from '@supabase/supabase-js';
+
 import type { MiddlewareClientFactory, ServerClientFactory } from './supabase.types';
 
 let serverClientFactory: ServerClientFactory | null = null;

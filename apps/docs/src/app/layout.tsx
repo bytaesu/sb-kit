@@ -1,7 +1,11 @@
 import type { ReactNode } from 'react';
+
 import type { Metadata } from 'next/types';
+
 import { RootProvider } from 'fumadocs-ui/provider';
+
 import { pretendard } from '@/fonts';
+
 import './global.css';
 
 export const metadata: Metadata = {

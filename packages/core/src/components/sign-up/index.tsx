@@ -1,5 +1,13 @@
 'use client';
 
+import Link from 'next/link';
+
+import { SeparatorWithText } from '@sb-kit/ui/components/base/separator';
+
+import { useEmailOtpFlow } from '../../hooks/use-email-otp-flow';
+import { useRedirectUrl } from '../../hooks/use-redirect-url';
+import { OAuthProvider } from '../../oauth-provider';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import {
   AuthCard,
   AuthCardContent,
@@ -7,15 +15,9 @@ import {
   AuthCardHeader,
   AuthCardTitle,
 } from '../auth-card';
-import Link from 'next/link';
-import SignUpForm from './form';
-import OAuthButton from '../oauth-button';
-import { OAuthProvider } from '../../oauth-provider';
-import { useEmailOtpFlow } from '../../hooks/use-email-otp-flow';
-import { SeparatorWithText } from '@sb-kit/ui/components/base/separator';
-import { useRedirectUrl } from '../../hooks/use-redirect-url';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import EmailOtpVerification from '../email-otp-verification';
+import OAuthButton from '../oauth-button';
+import SignUpForm from './form';
 
 type SignUpProps = {
   sbKitConfig: SbKitConfig;

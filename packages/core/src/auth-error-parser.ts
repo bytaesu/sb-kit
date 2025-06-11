@@ -1,4 +1,5 @@
 import type { SearchParams } from 'next/dist/server/request/search-params';
+
 import { AUTH_ERRORS } from './constants';
 
 type AuthErrorMessage = (typeof AUTH_ERRORS)[keyof typeof AUTH_ERRORS];

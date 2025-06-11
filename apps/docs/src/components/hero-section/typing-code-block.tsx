@@ -1,7 +1,8 @@
 'use client';
 
-import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
 import { useEffect, useState } from 'react';
+
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
 
 const code = `import { sbKit } from '@/lib/sb-kit';
 

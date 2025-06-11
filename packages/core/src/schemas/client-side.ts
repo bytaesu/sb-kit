@@ -2,8 +2,8 @@
  * Client-side validation schemas for auth forms (e.g. SignInForm)
  * Built using settings from sbKitConfig (e.g. passwordPolicy)
  */
-
 import { z } from 'zod';
+
 import type { SbKitConfig } from '../sb-kit/sb-kit.types';
 
 /**

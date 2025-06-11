@@ -1,5 +1,6 @@
-import SbKitLogo from '@/components/sb-kit-logo';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+
+import SbKitLogo from '@/components/sb-kit-logo';
 
 /**
  * Shared layout configurations

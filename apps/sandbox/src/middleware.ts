@@ -1,4 +1,5 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
+
 import { sbKit } from './lib/supabase/sb-kit';
 
 export async function middleware(request: NextRequest) {

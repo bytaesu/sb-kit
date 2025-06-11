@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@sb-kit/ui": "workspace:*",

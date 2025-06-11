@@ -1,3 +1,11 @@
+import { SearchParams } from 'next/dist/server/request/search-params';
+import Link from 'next/link';
+
+import { SeparatorWithText } from '@sb-kit/ui/components/base/separator';
+
+import { parseAuthError } from '../../auth-error-parser';
+import { OAuthProvider } from '../../oauth-provider';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import {
   AuthCard,
   AuthCardContent,
@@ -5,15 +13,9 @@ import {
   AuthCardHeader,
   AuthCardTitle,
 } from '../auth-card';
-import Link from 'next/link';
-import OAuthButton from '../oauth-button';
-import { SearchParams } from 'next/dist/server/request/search-params';
 import AuthErrorAlert from '../auth-error-alert';
-import { SeparatorWithText } from '@sb-kit/ui/components/base/separator';
-import { OAuthProvider } from '../../oauth-provider';
-import { parseAuthError } from '../../auth-error-parser';
+import OAuthButton from '../oauth-button';
 import SignInForm from './form';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 
 export type SignInProps = {
   searchParams: Promise<SearchParams>;
@@ -56,7 +58,7 @@ const SignIn = async ({ searchParams, sbKitConfig }: SignInProps) => {
       </AuthCardContent>
 
       <AuthCardFooter>
-        <p className="text-sm font-normal text-muted-foreground">Don't have an account?</p>
+        <p className="text-sm font-normal text-muted-foreground">{"Don't have an account?"}</p>
         <Link
           href={{
             pathname: sbKitConfig.authRoutes.signUp,

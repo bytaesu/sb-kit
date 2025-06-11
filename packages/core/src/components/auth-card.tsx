@@ -1,5 +1,5 @@
-import { cn } from '@sb-kit/ui/lib/utils';
 import { Card, CardContent, CardFooter, CardHeader } from '@sb-kit/ui/components/base/card';
+import { cn } from '@sb-kit/ui/lib/utils';
 
 type WithChildren = {
   children: React.ReactNode;

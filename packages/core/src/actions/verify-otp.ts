@@ -1,11 +1,11 @@
 'use server';
 
-import { serverVerifyOtpSchema } from '../schemas/server-side';
-import { AllowedEmailOtpTypes } from '../email-otp';
-import { getServerClient } from '../supabase/client-factory';
-import type { ActionStatusResult } from './action.types';
 import { AUTH_ERRORS } from '../constants';
+import { AllowedEmailOtpTypes } from '../email-otp';
+import { serverVerifyOtpSchema } from '../schemas/server-side';
+import { getServerClient } from '../supabase/client-factory';
 import { extractErrorMessage } from '../utils';
+import type { ActionStatusResult } from './action.types';
 
 export async function verifyOtpAction(
   email: string,

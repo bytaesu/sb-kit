@@ -1,5 +1,12 @@
 'use client';
 
+import { HiChevronLeft } from 'react-icons/hi';
+
+import Link from 'next/link';
+
+import { useEmailOtpFlow } from '../../hooks/use-email-otp-flow';
+import { useRedirectUrl } from '../../hooks/use-redirect-url';
+import { SbKitConfig } from '../../sb-kit/sb-kit.types';
 import {
   AuthCard,
   AuthCardContent,
@@ -8,13 +15,8 @@ import {
   AuthCardHeader,
   AuthCardTitle,
 } from '../auth-card';
-import Link from 'next/link';
-import ForgotPasswordForm from './form';
-import { HiChevronLeft } from 'react-icons/hi';
-import { SbKitConfig } from '../../sb-kit/sb-kit.types';
-import { useEmailOtpFlow } from '../../hooks/use-email-otp-flow';
 import EmailOtpVerification from '../email-otp-verification';
-import { useRedirectUrl } from '../../hooks/use-redirect-url';
+import ForgotPasswordForm from './form';
 
 type ForgotPasswordProps = {
   sbKitConfig: SbKitConfig;

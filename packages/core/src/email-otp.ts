@@ -1,6 +1,7 @@
-import type { SbKitConfig } from './sb-kit/sb-kit.types';
 import type { EmailOtpType } from '@supabase/supabase-js';
+
 import { getSafeRedirectPath } from './safe-redirect';
+import type { SbKitConfig } from './sb-kit/sb-kit.types';
 
 /**
  * Supported Email OTP Types
