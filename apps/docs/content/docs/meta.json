@@ -1,6 +1,5 @@
 {
-  "title": "Display Name",
-  "icon": "MyIcon",
+  "title": "sb-kit",
   "pages": ["---About---", "index", "concepts", "---Guides---", "getting-started", "settings"],
   "defaultOpen": true
 }
