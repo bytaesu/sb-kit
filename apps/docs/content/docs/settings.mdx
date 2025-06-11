@@ -76,9 +76,10 @@ When integrating social login with sb-kit, there’s nothing different from the 
 ### Password-based login with email OTP
 
 ```ts title="/lib/supabase/sb-kit.ts"
-import { sbKitClient } from 'sb-kit';
-import { serverClient } from './client/server';
+import { sbKitClient } from '@sb-kit/core';
+
 import { middlewareClient } from './client/middleware';
+import { serverClient } from './client/server';
 
 export const sbKit = sbKitClient({
   supabaseClients: {
@@ -108,9 +109,10 @@ export const sbKit = sbKitClient({
 ### Social login (OAuth)
 
 ```ts title="/lib/supabase/sb-kit.ts"
-import { sbKitClient } from 'sb-kit';
-import { serverClient } from './client/server';
+import { sbKitClient } from '@sb-kit/core';
+
 import { middlewareClient } from './client/middleware';
+import { serverClient } from './client/server';
 
 export const sbKit = sbKitClient({
   supabaseClients: {
@@ -138,9 +140,10 @@ export const sbKit = sbKitClient({
 ### Route & Redirect Settings
 
 ```ts title="/lib/supabase/sb-kit.ts"
-import { sbKitClient } from 'sb-kit';
-import { serverClient } from './client/server';
+import { sbKitClient } from '@sb-kit/core';
+
 import { middlewareClient } from './client/middleware';
+import { serverClient } from './client/server';
 
 export const sbKit = sbKitClient({
   supabaseClients: {
