@@ -1,21 +1,21 @@
 {
   "name": "@sb-kit/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Drop-in authentication layer for Next.js and Supabase.",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/index.js"
-    },
-    "./styles/*": "./styles/*"
+    }
   },
   "files": [
-    "dist",
-    "styles"
+    "dist"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0"
   },
   "peerDependencies": {
     "next": ">=15.0.0",
@@ -23,8 +23,8 @@
     "react-dom": ">=19.0.0"
   },
   "dependencies": {
-    "@sb-kit/ui": "^0.0.2",
     "@hookform/resolvers": "^5.0.1",
+    "@sb-kit/ui": "^0.0.2",
     "react-hook-form": "^7.57.0",
     "react-icons": "^5.5.0",
     "sonner": "^2.0.5",
@@ -38,9 +38,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9.28.0",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "tsup": "^8.5.0"
+    "tsup": "^8.5.0",
+    "typescript": "^5"
   },
   "license": "MIT",
   "author": "bytaesu <bytaesu@gmail.com> (https://github.com/bytaesu)",
